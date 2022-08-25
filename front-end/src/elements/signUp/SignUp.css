@@ -1,0 +1,121 @@
+.signUp__upper__part{
+    display: flex;
+    justify-content: center;
+    height: max-content;
+    background-color: white;
+    flex-direction: column;
+}
+
+.signUp__logo{
+    display: flex;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 130px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.signUp__box{
+    max-width: 300px;
+    height: max-content;
+    border: 1px solid gray;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 18px;
+    margin-bottom: 20px;
+    border-color: rgb(205, 204, 204);
+    border-radius: 3px;
+}
+
+.signUp__heading{
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.signUp__box__title{
+    font-size: small;
+    font-weight:800;
+    margin-bottom: 10px;
+}
+
+.signUp__textbox{
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 3px;
+    height: 30px;
+    border: 1px solid rgb(133, 132, 132);
+    border-radius: 2px;
+    font-size: 15px;
+}
+
+.SignUp__button{
+    background-color: #f7c955e3;
+    border: 1px solid;
+    height: 30px;
+    width: 102%;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: #111;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 15px;
+}
+
+.SignUp__button:hover{
+    background-color: #f0c351;
+}
+
+.SignUp__button:active{
+    transform: scale(0.98);
+}
+
+.signUp__box__info{
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.signUp__to__logIn > hr{
+    text-align: center; 
+    border-bottom: 0.01px solid #000; 
+    line-height: 0.05em;
+    margin: 10px 0 20px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border-color: rgb(205, 204, 204);
+}
+
+.signUp__to__logIn > p{
+    margin-top: 15px;
+    font-size: small;
+    font-weight: 500;
+}
+
+.signUp__lower__part{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 230px;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+.signUp__lower__info{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(12, 74, 154, 0.865);
+ }
+
+.signUp__lower__part > small{
+    text-align: center;
+    font-size: 10px;
+}
