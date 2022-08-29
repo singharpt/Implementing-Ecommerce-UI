@@ -5,6 +5,8 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const users = require("./models/userSchema");
+const products = require("./models/productSchema");
+// const dataToDatabase = require("./database/dataToDatabase");
 const db =
   "mongodb+srv://07arpit:OtO9TjB8jNNwXBsj@cluster0.pevcnmw.mongodb.net/amazon_clone?retryWrites=true&w=majority";
 const router = require("./routes/router");

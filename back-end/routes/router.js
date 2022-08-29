@@ -1,7 +1,20 @@
 const express = require("express");
 const router = new express.Router();
 const USER = require("../models/userSchema");
+const products = require("../models/productSchema");
 const bcrypt = require("bcryptjs");
+
+//getting the product data
+
+router.get("/getproducts", async (req, res) => {
+  try {
+    const producstdata = await products.find();
+    console.log(producstdata);
+    res.status(201).json(producstdata);
+  } catch (error) {
+    console.log("error ----> " + error.message);
+  }
+});
 
 //registering the user
 router.post("/register", async (req, res) => {
