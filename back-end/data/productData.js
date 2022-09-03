@@ -34,7 +34,7 @@ const products = [
     },
     description:
       "This non-stick sandwich toaster .easy to use and very handy. Directly hold over flame to make tasty toasts and toasted sandwiches. Specially designed by keeping your needs in mind, the sandwich maker makes whatever youre doing simpler, smarter and better",
-    discount: "From 99+5% Off",
+    discount: "Upto 55% Off",
     tagline: "Pestige, Nova & more",
   },
   {
@@ -73,7 +73,7 @@ const products = [
     },
     description:
       "The Molife Sense 500, a brilliant smartwatch with a beautiful large display. Say hello to the infinity 1.7-inch display with 2.5D curved edges. Thanks to seamless Bluetooth 5.0 connectivity, you wont have to keep waiting. Bring a change to your outfit every day with changeable straps. A splash of color every day keeps the boredom away.",
-    discount: "Grab Now",
+    discount: "Grab Now, Extra 10% off",
     tagline: "Best Seller",
   },
   {
@@ -91,7 +91,7 @@ const products = [
       discount: "40%",
     },
     description: "",
-    discount: "From ₹499",
+    discount: "Best Deal, starting from ₹499",
     tagline: "Kubra, Nova & more",
   },
 ];

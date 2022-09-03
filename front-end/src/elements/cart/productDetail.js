@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./productDetail.css";
+import { useParams } from "react-router";
 
 function ShowDetail({
-  id,
-  url,
   detailUrl,
   shortTitle,
   longTitle,
@@ -12,7 +11,6 @@ function ShowDetail({
   itemDiscount,
   description,
   discount,
-  tagline,
 }) {
   return (
     <div className="main__box">
@@ -38,7 +36,7 @@ function ShowDetail({
         <p className="save">
           <span className="part1">You save :&nbsp;</span>
           <span className="part2">
-            ${Math.abs({ mrp }, { cost })} ({itemDiscount})
+            ${mrp - cost} ({itemDiscount})
           </span>
         </p>
         <p className="discount">
@@ -63,25 +61,71 @@ function ShowDetail({
   );
 }
 
-function productDetail() {
+function ProductDetail() {
+  const { id } = useParams();
+  const [indProductData, setIndProductData] = useState("");
+  const getIndProductData = async () => {
+    try {
+      const res = await fetch(`/products/${id}`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
+      if (res.status !== 201) {
+        alert("Found no data");
+      } else {
+        setIndProductData(data);
+      }
+    } catch (error) {
+      console.log("error in prodcut details ----> " + error.message);
+    }
+  };
+  useEffect(() => {
+    getIndProductData();
+  }, [id]);
+
   return (
     <div>
-      <ShowDetail
-        id="product1"
-        url="https://rukminim1.flixcart.com/image/150/150/kapoo7k0/electric-kettle/p/6/s/pigeon-favourite-original-imafs7xhj5uwgrh4.jpeg?q=70"
-        detailUrl="https://rukminim1.flixcart.com/image/416/416/kapoo7k0/electric-kettle/p/6/s/pigeon-favourite-original-imafs7xhj5uwgrh4.jpeg?q=70"
-        shortTitle="Home & Kitchen"
-        longTitle="Pigeon FAVOURITE Electric Kettle  (1.5 L, Silver, Black)"
-        mrp={1195}
-        cost={625}
-        itemDiscount="47%"
-        description="This electric kettle from Pigeon will soon become a travelers best friend, a hostelite saviour and an answer to all the midnight cravings. With this handy appliance, you can boil water and use it to make instant noodles, packet soup, coffee and green tea."
-        discount="Extra 10% Off"
-        tagline="Deal of the day"
-      />
+      {indProductData && Object.keys(indProductData).length && (
+        <ShowDetail
+          id={indProductData["0"]["id"]}
+          url={indProductData["0"]["url"]}
+          detailUrl={indProductData["0"]["detailUrl"]}
+          shortTitle={indProductData["0"]["title"]["shortTitle"]}
+          longTitle={indProductData["0"]["title"]["longTitle"]}
+          mrp={indProductData["0"]["price"]["mrp"]}
+          cost={indProductData["0"]["price"]["cost"]}
+          itemDiscount={indProductData["0"]["price"]["discount"]}
+          description={indProductData["0"]["description"]}
+          discount={indProductData["0"]["discount"]}
+          tagline={indProductData["0"]["tagline"]}
+        />
+      )}
       ;
     </div>
   );
 }
 
-export default productDetail;
+export default ProductDetail;
+
+// return (
+//   <div>
+//     <ShowDetail
+//       id={indProductData.id}
+//       url={indProductData.url}
+//       detailUrl={indProductData.detailUrl}
+//       shortTitle={indProductData.title.shortTitle}
+//       longTitle={indProductData.title.longTitle}
+//       mrp={indProductData.price.mrp}
+//       cost={indProductData.price.cost}
+//       itemDiscount={indProductData.price.discount}
+//       description={indProductData.description}
+//       discount={indProductData.discount}
+//       tagline={indProductData.tagline}
+//     />
+//     ;
+//   </div>
+// );

@@ -4,10 +4,10 @@ import logo from "./images/amazon_logo.png";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
-import { StateValue } from "./../../redux/StateProvider";
+// import { StateValue } from "./../../redux/StateProvider";
 
 function header() {
-  const [{ basket }] = StateValue();
+  // const [{ basket }] = StateValue();
 
   return (
     <div className="header">
@@ -43,7 +43,8 @@ function header() {
             <ShoppingCartIcon />
             <span className="header_optionLine2 header_shoppingCartCount">
               {" "}
-              {basket?.length}{" "}
+              {0}
+              {/* {basket?.length}{" "} */}
             </span>
           </div>
         </Link>

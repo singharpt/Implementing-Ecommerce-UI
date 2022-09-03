@@ -50,7 +50,7 @@ const Slide = ({ title, products }) => {
       >
         {products.map((e) => {
           return (
-            <Link to="/product">
+            <Link to={`/products/${e.id}`}>
               <div className="products_items">
                 <div className="product_img">
                   <img src={e.url} alt="product" />
@@ -70,5 +70,3 @@ const Slide = ({ title, products }) => {
 };
 
 export default Slide;
-
-// {`/getproductsone/${e.id}`}

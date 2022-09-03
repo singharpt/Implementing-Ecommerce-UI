@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.css";
-import Product from "../product/product";
-import { products } from "../product/productData";
+// import Product from "../product/product";
+// import { products } from "../product/productData";
 import product1 from "./images/homeBox_product1.jpeg";
 import product2 from "./images/homeBox_product2.jpeg";
 import product3 from "./images/homeBox_product3.jpeg";
@@ -18,14 +18,16 @@ import product13 from "./images/homeBox_product13.jpeg";
 import product14 from "./images/homeBox_product14.jpeg";
 import product15 from "./images/homeBox_product15.jpeg";
 import product16 from "./images/homeBox_product16.jpeg";
-import p1 from "./images/product1.jpeg";
-import p2 from "./images/product2.jpeg";
-import p3 from "./images/product3.jpeg";
+// import p1 from "./images/product1.jpeg";
+// import p2 from "./images/product2.jpeg";
+// import p3 from "./images/product3.jpeg";
 // import p4 from "./images/product4.png";
 // import p5 from "./images/product5.jpeg";
-import p6 from "./images/product6.jpeg";
+// import p6 from "./images/product6.jpeg";
 import HomePoster from "./homePoster";
 import HomeSlide from "./homeSlide";
+import { useSelector, useDispatch } from "react-redux";
+import { getProducts } from ".././redux/action/actions";
 
 function HomeBox({ heading, p1, p2, p3, p4 }) {
   return (
@@ -62,7 +64,16 @@ function HomeBox({ heading, p1, p2, p3, p4 }) {
   );
 }
 
-function home() {
+function Home() {
+  const { products } = useSelector((state) => state.getproductsdata);
+  console.log(products);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
   return (
     <div className="home">
       <div className="home__container">
@@ -119,7 +130,7 @@ function home() {
           </div>
         </div>
 
-        <div className="home__row">
+        {/* <div className="home__row">
           <Product
             id="106"
             title="Samsung 108 cm (43 inches) Crystal 4K Neo Series Ultra HD Smart LED TV UA43AUE65AKXXL (Black)"
@@ -128,13 +139,13 @@ function home() {
             rating="⭐️⭐️⭐️⭐️⭐️"
             rated_by="2179"
           />
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
           <HomeSlide title="Today's deal" products={products} />
-        </div>
+        </div> */}
 
-        <div className="home__row">
+        {/* <div className="home__row">
           <Product
             id="103"
             title="IPhone 13 Pro, 128 GB, Graphite Black"
@@ -159,14 +170,14 @@ function home() {
             rating="⭐️⭐️⭐️⭐️⭐️"
             rated_by="1300"
           />
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
           <HomeSlide title="Today's deal" products={products} />
-        </div>
+        </div> */}
       </div>
     </div>
   );
 }
 
-export default home;
+export default Home;

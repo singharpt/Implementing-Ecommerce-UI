@@ -4,14 +4,25 @@ const USER = require("../models/userSchema");
 const products = require("../models/productSchema");
 const bcrypt = require("bcryptjs");
 
-//getting the product data
-
+//getting the complete product data
 router.get("/getproducts", async (req, res) => {
   try {
-    const producstdata = await products.find();
-    console.log(producstdata);
-    res.status(201).json(producstdata);
+    const productsdata = await products.find();
+    // console.log(productsdata);
+    res.status(201).json(productsdata);
   } catch (error) {
+    console.log("error ----> " + error.message);
+  }
+});
+
+//getting the individual product data
+router.get("/products/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const singleproductdata = await products.find({ id: id });
+    res.status(201).json(singleproductdata);
+  } catch (error) {
+    res.status(400).json(singleproductdata);
     console.log("error ----> " + error.message);
   }
 });
