@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
 import login_logo from "./images/loginLogo.png";
 import { Link } from "react-router-dom";
@@ -26,11 +26,10 @@ function Login() {
   //console.log(currentState);
 
   const senddata = async (e) => {
-    e.preventDefault();
-
-    const { email, password } = currentState;
-    console.log(email);
+    // console.log(email);
     try {
+      e.preventDefault();
+      const { email, password } = currentState;
       const res = await fetch("/login", {
         method: "POST",
         headers: {
@@ -43,13 +42,14 @@ function Login() {
       });
 
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
 
       if (res.status === 400 || !data) {
-        console.log("invalid details");
+        // console.log("invalid details");
         toast.error("Invalid Details 👎!", {
           position: "top-center",
         });
+        throw new Error(" User not found");
       } else {
         //setAccount(data);
         setState({ ...currentState, email: "", password: "" });
@@ -58,7 +58,7 @@ function Login() {
         });
       }
     } catch (error) {
-      console.log("login page ka error" + error.message);
+      console.log("login page ka error ----> " + error.message);
     }
   };
 

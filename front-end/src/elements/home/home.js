@@ -29,6 +29,20 @@ import HomeSlide from "./homeSlide";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from ".././redux/action/actions";
 
+// const K = () => {
+//   // console.log("Hello");
+//   const [counter, setCounter] = useState(0);
+//   useEffect(() => {
+//     console.log("Hello");
+//     setCounter((counter) => counter + 1);
+//   }, []);
+//   return <div>{counter}</div>;
+// };
+
+// function Check({ e }) {
+//   return <div>{e !== 1 && <K />}</div>;
+// }
+
 function HomeBox({ heading, p1, p2, p3, p4 }) {
   return (
     <div className="home__box">
@@ -80,6 +94,9 @@ function Home() {
         <div className="home__image">
           <HomePoster />
         </div>
+        {/* <div>
+          <Check e={2} />
+        </div> */}
 
         <div className="home__row">
           <HomeBox

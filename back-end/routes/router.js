@@ -38,7 +38,6 @@ router.post("/register", async (req, res) => {
 
   try {
     const preuser = await USER.findOne({ email: email });
-
     if (preuser) {
       res.status(422).json({ error: "This email already exist" });
     } else if (password !== password_agn) {
@@ -51,7 +50,6 @@ router.post("/register", async (req, res) => {
         password,
         password_agn,
       });
-
       const storedata = await finaluser.save();
       console.log(storedata + "user successfully added");
       res.status(201).json(storedata);
@@ -68,7 +66,6 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   // console.log(req.body);
   const { email, password } = req.body;
-
   if (!email || !password) {
     res.status(400).json({ error: "fill the details" });
   }
@@ -84,9 +81,9 @@ router.post("/login", async (req, res) => {
         res.status(400).json({ error: "invalid crediential pass" });
       } else {
         const token = await userlogin.generatAuthtoken();
-        console.log("token ---->", token);
+        // console.log("token ---->", token);
 
-        res.cookie("amazon-clone", token, {
+        res.cookie("ecommerce-clone", token, {
           expires: new Date(Date.now() + 2589000),
           httpOnly: true,
         });
