@@ -1,7 +1,7 @@
 # My novice attempt to create an E-commerce full stack website.
-Tech Stack Used
+**Tech stack used: -**
 
-**Front-End** : React, JavaScript, HTML, CSS
-**Back-End** : Node.js
-**Middleware**: Express.js
+**Front-End** : React, JavaScript, HTML, CSS <br>
+**Back-End** : Node.js <br>
+**Middleware**: Express.js <br>
 **Database**: MongoDB
